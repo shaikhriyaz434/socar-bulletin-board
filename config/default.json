@@ -1,0 +1,16 @@
+{
+ "APP_SERVER":{
+     "PORT":3000
+ },
+ "DB_SERVER":{
+    "USERNAME":"riyaz",
+    "DB":"socarnotes",
+    "HOST":"127.0.0.1",
+    "PORT":"5432",
+    "PASSWORD":""
+ },
+ "FILE_SERVER":{
+     "OUT_DIR":"./public/data/files",
+     "HOST":"http://127.0.0.1:3000/data/files/"
+ }
+}
