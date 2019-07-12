@@ -19,6 +19,16 @@ class notesController {
         }
 
     }
+    async getNotesDetails(key) {
+        try {
+            let notes = await Note.findByPk(key);
+            return notes;
+        } catch (err) {
+            throw err;
+        }
+
+    }
+
 
     async createNote(data) {
         let { title, comment, imageUrl, description } = data;

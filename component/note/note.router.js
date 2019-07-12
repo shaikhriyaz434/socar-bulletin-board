@@ -11,6 +11,17 @@ router.get('/', async (req, res) => {
     }
 
 })
+
+router.get('/:noteId', async (req, res) => {
+    try {
+        let notes = await noteController.getNotesDetails(req.params.noteId);
+        return res.json(notes);
+    } catch (err) {
+        return res.json(err);
+    }
+
+})
+
 router.post('/', [check('title').isString(), check('description').isString()], async (req, res) => {
     let errors = validationResult(req);
     console.log("is array empty:", errors.isEmpty());

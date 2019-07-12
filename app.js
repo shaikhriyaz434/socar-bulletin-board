@@ -23,10 +23,21 @@ db.authenticate()
   .catch(err => console.log(`error while connecting to DB ${err}`));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
-
+var allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  //
+  // intercept OPTIONS method
+  if ('OPTIONS' == req.method) {
+      res.send(200);
+  }
+  else {
+      next();
+  }
+};
+app.use(allowCrossDomain);
 app.use('/ftp', fileRoute);
 
 
@@ -35,6 +46,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/notes', noteRouter);
 

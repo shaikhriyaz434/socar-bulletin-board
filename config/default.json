@@ -1,6 +1,6 @@
 {
  "APP_SERVER":{
-     "PORT":3000
+     "PORT":3001
  },
  "DB_SERVER":{
     "USERNAME":"riyaz",
@@ -11,6 +11,6 @@
  },
  "FILE_SERVER":{
      "OUT_DIR":"./public/data/files",
-     "HOST":"http://127.0.0.1:3000/data/files/"
+     "HOST":"http://127.0.0.1:3001/data/files/"
  }
 }
